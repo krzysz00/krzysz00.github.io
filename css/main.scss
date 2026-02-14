@@ -4,20 +4,49 @@
 
 @import "normalize.css";
 
-$desktop-width: 40em;
-$dim: #999;
+@mixin dark-mode {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+
+$desktop-width: 40rem;
+$dim-light: #999;
+$dim-dark: #777;
+$light-text: black;
+$light-bg: white;
+$dark-text: white;
+$dark-bg: black;
 
 body {
     font-family: Georgia, serif;
     margin: 0 auto; /* Centering */
-    max-width: $desktop-width + 10em;
+    max-width: $desktop-width;
+    padding: 2rem;
+
+    color: $light-text;
+    background-color: $light-bg;
+    @include dark-mode {
+        color: $dark-text;
+        background-color: $dark-bg;
+    }
+}
+
+@media(prefers-color-scheme: dark) {
+    a:link { color: lightskyblue; }
+    a:visited { color: #b878ff;; }
+    a:hover { color: $dark-text; }
+    a:active { color: #ff4040; }
 }
 
 #name-header a {
-    color: black;
+    color: $light-text;
     text-decoration: none;
     &:hover, &:focus, &:active {
         text-decoration: underline;
+    }
+    @include dark-mode {
+        color: $dark-text;
     }
 }
 
@@ -25,7 +54,10 @@ img#main-photo {
     float: right;
     max-width: 150px;
     border-radius: 10px;
-    border: 3px solid $dim;
+    border: 3px solid $dim-light;
+    @include dark-mode {
+        border: 3px solid $dim-dark;
+    }
 }
 
 #publications {

@@ -38,9 +38,10 @@ Ham radio
 </section>
 
 # About me {#about}
-I am a senior engineer on the machine learning compiler team at AMD.
-There, I am one of the technical leads on [rocMLIR, a MLIR-based generator for high performance machine lerning kernels.](https://github.com/ROCm/rocMLIR).
-See [Software development](#software-development) for more details on my work and the contributions I have made to the MLIR and LLVM projects as a result.
+I am a senior engineer working on compilers for AI at AMD.
+There, I am primarily working on the [IREE project](https://github.com/iree-org/iree/) and making substantial contributions to [MLIR](https://mlir.llvm.org/) and some work on LLVM.
+Before late 2024, I was a tech lead on [rocMLIR, a MLIR-based generator for high performance machine lerning kernels.](https://github.com/ROCm/rocMLIR).
+See [Software development](#software-development) for more details on my work.
 
 I'm not looking for new work right now.
 
@@ -50,8 +51,12 @@ In addition to my software development work, I have written several published sh
 
 # Software development {#software-development}
 
-My main role at AMD since I joined the company has been work on the rocMLIR project.
-Over that time, I have become one of the tech leads on the project, which is a generator
+My main role at AMD is working on low-level kernel optimizations and new hardware in a senior capacity (handling planning and implementation strategy)
+as part of the IREE project (which is an end-to-end graph compiler for AI models).
+I played a key role in RDNA4 and MI-350 support.
+I also deepened my involvement in upstream MLIR and LLVM, such as by becoming a dialect maintainer for AMD-related dialects.
+
+Previously, I grew from joining the company to late 2024, I grew from a new engineer on the rocMLIR kernel generator project to one of its tech leads.
 for high-performance implementations of matrix multiplication and convolution on AMD GPUs,
 primarily for use in machine learning.
 
@@ -59,11 +64,13 @@ My work on rocMLIR has spanned from overseeing our integration into the MIGraphX
 For example, I made our existing [coordinate transformations](https://mlir.llvm.org/OpenMeetings/2022-10-06-Rocm-affine.pdf) concept a first-class IR object, which allowed for powerful analyses such as the ability to determine how accesses to the memory underlying a tensor could be best vectorized.
 
 I have made various substantial contributions to the wider MLIR and LLVM community, including:
+- Maintaining the AMD-related dialects (AMDGPU and ROCDL)
 - Providing ergonomic wrappers around our matrix multiplication instructions
 - Adding support for `gpu.printf`
 - Integer range analysis for MLIR
 - The `ptr addrspace(8)` (buffer resource) and `ptr addrspace(7)` (buffer fat pointer) representations for AMD buffer resources in LLVM
 - Substantially expanding how the new properties system in MLIR could be used in declarative operation specifications
+- Extending GPU barrier semantics to represent fine-grained memory fencing
 
 <section id="writing-section">
 # Writing {#writing}
